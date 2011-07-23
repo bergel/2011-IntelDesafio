@@ -1,0 +1,411 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% http://www.hpl.hp.com/open_innovation/irp/HPL-IRP2011.pdf
+%\documentclass[runningheads]{llncs}
+\documentclass{sig-alternate}
+
+\newcommand{\project}{{\sc MetaSpy}\xspace}
+
+% packages
+\usepackage{xspace}
+\usepackage{ifthen}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{balance}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{needspace}
+\usepackage{microtype}
+\usepackage{bold-extra}
+
+% constants
+\newcommand{\Title}{QualityMonitor: Visualizing and Monitoring Evolution of Software Quality}
+%\newcommand{\TitleShort}{\Title}
+\newcommand{\Authors}{Alexandre Bergel, Marco Orellana, David R\"otlisberger, Christian Palomares, Romain Charnay}
+%\newcommand{\AuthorsShort}{A. Bergel}
+
+% references
+\usepackage[colorlinks]{hyperref}
+\usepackage[all]{hypcap}
+\setcounter{tocdepth}{2}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=black,
+	linkcolor=black,
+	citecolor=black,
+	plainpages=false,
+	bookmarksopen=true,
+	pdfauthor={\Authors},
+	pdftitle={\Title}}
+
+\def\chapterautorefname{Chapter}
+\def\appendixautorefname{Appendix}
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Section}
+\def\figureautorefname{Figure}
+\def\tableautorefname{Table}
+\def\listingautorefname{Listing}
+
+% source code
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{listings}
+\definecolor{source}{gray}{0.9}
+\lstset{
+	language={},
+	% characters
+	tabsize=3,
+	upquote=true,
+	escapechar={!},
+	keepspaces=true,
+	breaklines=true,
+	alsoletter={\#:},
+	breakautoindent=true,
+	columns=fullflexible,
+	showstringspaces=false,
+	basicstyle=\footnotesize\sffamily,
+	% background
+	frame=single,
+    framerule=0pt,
+	backgroundcolor=\color{source},
+	% numbering
+	numbersep=5pt,
+	numberstyle=\tiny,
+	numberfirstline=true,
+	% captioning
+	captionpos=b,
+	% formatting (html)
+	moredelim=[is][\textbf]{<b>}{</b>},
+	moredelim=[is][\textit]{<i>}{</i>},
+	moredelim=[is][\color{red}\uwave]{<u>}{</u>},
+	moredelim=[is][\color{red}\sout]{<del>}{</del>},
+	moredelim=[is][\color{blue}\underline]{<ins>}{</ins>}}
+\newcommand{\ct}{\lstinline[backgroundcolor=\color{white},basicstyle=\footnotesize\ttfamily]}
+\newcommand{\co}[1]{{\sf #1}}
+\newcommand{\lct}[1]{{\small\tt #1}}
+
+% tikz
+% \usepackage{tikz}
+% \usetikzlibrary{matrix}
+% \usetikzlibrary{arrows}
+% \usetikzlibrary{external}
+% \usetikzlibrary{positioning}
+% \usetikzlibrary{shapes.multipart}
+% 
+% \tikzset{
+% 	every picture/.style={semithick},
+% 	every text node part/.style={align=center}}
+
+% proof-reading
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\newcommand{\ra}{$\rightarrow$}
+\newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
+\newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
+\newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
+\newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+\newcommand{\chk}[1]{\textcolor{ForestGreen}{#1}} % changed, please check
+
+% comments \nb{label}{color}{text}
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}
+	{\newcommand{\nb}[3]{
+		{\colorbox{#2}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}
+		{\textcolor{#2}{\sf\small$\blacktriangleright$\textit{#3}$\blacktriangleleft$}}}
+	 \newcommand{\version}{\emph{\scriptsize$-$Id$-$}}}
+	{\newcommand{\nb}[2]{}
+	 \newcommand{\version}{}}
+\newcommand{\rev}[2]{\nb{Reviewer #1}{red}{#2}}
+\newcommand{\ab}[1]{\nb{Alexandre}{blue}{#1}}
+\newcommand{\lr}[1]{\nb{Lukas}{orange}{#1}}
+\newcommand{\jr}[1]{\nb{Jorge}{cyan}{#1}}
+
+% graphics: \fig{position}{percentage-width}{filename}{caption}
+\DeclareGraphicsExtensions{.png,.jpg,.pdf,.eps,.gif}
+\graphicspath{{figures/}}
+\newcommand{\fig}[4]{
+	\begin{figure}[#1]
+		\centering
+		\includegraphics[width=#2\textwidth]{#3}
+		\caption{\label{fig:#3}#4}
+	\end{figure}}
+
+\newcommand{\figLarge}[4]{
+	\begin{figure*}[#1]
+		\centering
+		\includegraphics[width=#2\textwidth]{#3}
+		\caption{\label{fig:#3}#4}
+	\end{figure*}}
+
+% abbreviations
+\newcommand{\ie}{\emph{i.e.,}\xspace}
+\newcommand{\eg}{\emph{e.g.,}\xspace}
+\newcommand{\etc}{\emph{etc.}\xspace}
+\newcommand{\etal}{\emph{et al.}\xspace}
+
+% lists
+\newenvironment{bullets}[0]
+	{\begin{itemize}}
+	{\end{itemize}}
+
+\newcommand{\seclabel}[1]{\label{sec:#1}}
+\newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+
+% D O C U M E N T
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{document}
+
+% T I T L E
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\title{\Title}
+%\titlerunning{\TitleShort}
+
+%\author{\Authors} 
+%\authorrunning{\AuthorsShort}
+
+\author{\Authors\\[3mm]
+Department of Computer Science (DCC),\\ University of Chile, Santiago, Chile} 
+
+
+%\institute{PLEIAD Lab, University of Chile, Santiago, Chile\\
+%	\url{http://bergel.eul} \\[0.3cm]
+%	}
+
+\maketitle
+
+% A B S T R A C T
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+%Very short abstract: QualityMonitor complements standard software engineering tools with adequate software visualizations to improve software quality.
+
+%250 words
+\begin{abstract}
+The success of a software depends very much on the ability of the software to adapt to new user requirements. However, the cost to modify a software depends very much on the quality of the software. A software of a good quality is easier to adapt and improve. A software that is poorly conceived, independently whether it is functional or not, is costly to change and adapt. 
+
+Unfortunately, quality is difficult to achieve without proper monitoring tools and methodologies. Numerous tools have been proposed to assist software development, however they are either restricted to a problem range (making it unsuitable as a global quality platform) or are considered too ``academic'' (identified quality problems are not always understandable by a non expert). Moreover, many of them perform well to identify problems but provide little indication on how to remove those problems.
+
+QualityMonitor is a product used to monitor the quality of application source code. QualityMonitor innovates by delivering intuitive software visualizations to monitor quality. These ``X-Ray'' for software are accompanied with detailed but comprehensible indications on how to address quality deficiencies.  QualityMonitor's visualizations are adjustable to the corporative programming conventions and particularities of the analyzed software, making it more flexible and agile than concurrent solutions.
+
+In 2009, software maintenance costed 437 millions USD for the global Chilean market according to a survey sponsored by Microsoft and the Chilean government. The controlled experiments we realized in Europe and in South-America with our functional prototype suggest a significant reduction of maintenance cost. 
+
+We identified three large and prominent IT companies (Coasin\footnote{\url{http://www.coasin.com}}, NIC Chile\footnote{\url{http://www.nic.cl}}, Sonda\footnote{\url{http://www.sonda.com/portada}}) that are expressing their interest in QualityMonitor. The problems these companies are facing are similar: a large software, developed over a long period, has to be maintained and enhanced with new features, however, the knowledge of its internal has evaded with changes of the development team. By drawing high level representations of software internal, QualityMonitor reengineers the knowledge of software internal, thus facilitating evolution and maintenance.
+
+%The interaction we have with these companies is currently on hold, since the bootstrap of QualityMonitor depends very much of external financial resources. 
+
+The product and services of QualityMonitor will be operated by Object Guidance, a recently created company. The international team behind Object Guidance is composed of 5 people. We are currently applying for a 90,000 USD grant, resources that will be used to shape the solutions of client requirements.
+\end{abstract}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Difficulty to Bring Quality into Software}
+
+%Computer science is still a ``young'' science, the activity to build software is not fully understood and mastered yet. Software engineering is expensive and large resources are necessary to deliver software of quality (\ie bugfree, robust, extendable with new features at a low cost). Sommerville~\cite{Somm00a} and Davis~\cite{Davi95a} estimate that the cost of software maintenance accounts for 50\% to 75\% of the overall cost of a software system. \textbf{SAY MORE}
+
+\paragraph{Software Quality by example}
+During a workshop on software quality\footnote{\url{http://www.systematic-paris-region.org}} in September 2008, A. Bergel demonstrated an early prototype of Quality Monitor. A quality assurance architected working for a major car industry presented the following problem:
+\begin{quote}
+\emph{``I am in charge of the quality assurance for a large European automobile firm. The largest part of our production chain is controlled by a massive software. We have been working on this software for more than 15 years. The software has more than 2.5 millions lines of code and is developed in C (80\% of the total amount of source code), C++ (19.5\%) and few homemade languages (0.5\%).}
+
+\emph{Plotting the maintenance cost against the software change is an exponential curve. It is becoming impossible to precisely predict and control the cost of each new release.''}
+\end{quote}
+
+This situation is found in any software producer that has not adopted a proper solution to monitor software development quality.
+
+Dedicated visualizations were made using an earlier version of Quality Monitor for that very problem. Visualizations pinpointed components that are relatively easy to improve and without no significant ripple effect.
+
+\paragraph{IT Solution in Chile}
+According to a study realized by the GECHS\footnote{Sociedad Chilena de Software y Servicios, \url{http://www.gechs.cl}} and CETIUC\footnote{Centro de Estudios de Tecnologias e Informaci\'on, \url{http://www.cetiuc.cl}} and sponsored by Microsoft and InnovaChile, the chilean industry of information technology comprises 1,871 companies, in which only 350 are involved in producing software and IT services. These 350 companies are developing and selling custom software and general IT solutions. 
+The average income in 2009 for each of the 70 small and medium companies part of the GECHS is evaluated at 2.5 millions USD.
+
+% El promedio de facturacion para las 70 empresas pertenecientes a GECHS (en su mayoria pequeñas y medianas empresas) es de 2,5 MM
+
+The study further shows that the necessity of IT solutions has generated an annual increase of 15\% of income for the Chilean market, since 2008. %These solutions are most of the time developed internally. 
+%- El aumento de los desarrolladores de software a nivel mundial, y el sostenido crecimiento  presentando en Chile de, al menos, un 15\% por año  se orientan a las necesidades especificas de sus clientes produciendo la extensión de esta tendencia a la creación de software propios por las empresas, las cuales prefieren que estos sean desarrollados al interior de sus organizaciones por el carácter de confidencialidad de sus datos y la dependencia estratégica de sus procesos en buenos sistemas computacionales.
+%- El ingreso promedio de las empresas una tendencia al alza, la cual no baja del 9% comparativamente al año anterior
+The main services offered in Chile for the international market are software license (representing a share of 31\% of the total income) and general project administration (17\% of the total income). According to the GECHS, small and medium companies spend 52 millions USD to maintain their software, every year.
+
+%- Los principales servicios ofrecidos en el exterior son Ventas y licencias de software (31%) y administración general de proyectos de proyectos (17%). 
+
+
+These figures emphasizes the importance of controlling the quality of what is being produced and consumed, especially in an emerging country such as Chile.% Insuring the maintenance at a low cost is essential.
+
+%- En base a estos antecedentes es natural que surjan preguntas sobre cómo se realizan actualmente los controles de calidad y mantenimiento de software, ¿existen herramientas que monitoreen el funcionamiento de los software que se utilizan en las organizaciones?, ¿es posible mejorar los tiempos de respuestas de los programas que se utilizan?, ¿se pueden disminuir los costos asociados a mantención si tenemos un control continuo sobre el funcionamientos de los sistemas?.
+
+\paragraph{Software Quality}
+Software engineering is expensive and large resources are necessary to deliver software of quality (\ie bugfree, robust, extendable with new features at a low cost). Sommerville~\cite{Somm00a} and Davis~\cite{Davi95a} estimate that the cost of software maintenance accounts for 50\% to 75\% of the overall cost of a software system. Applied to the chilean industry, these figures reveals that each of the 70 surveyed companies spends between 1.25 and 1.87 millions USD. We estimate the lower bound of the cost of software maintenance in Chile to be 437 millions USD, extended to the 350 companies involved in producing software and IT services. 
+
+There is currently no global (both international and national) solutions to reduce the cost of software maintenance and controlling the quality of solution development. Symptoms of software quality problems are:
+
+\begin{itemize}
+\item The author of a poorly written, but functional, critical component may gain an excessive importance in the development team. We have seen numerous situations in which the departure of an engineer may endanger the whole company. By being poorly written, the component is hardly understandable by other fellows. 
+
+\item In the case of a departure of a central software engineer, completely rewriting parts of the software is often the only feasible way to not meet new requirements set by customers.
+
+\item Outsourcing the development has a tendency to significantly increase the cost of software maintenance. For example, a number of critical software programs of Banco de Chile have been developed in India. As a result, the way to fix software problems is often to send experts to Chile, which incurs high cost and long delay.
+\end{itemize}
+
+These problems are well known. Solutions that are commonly employed to prevent or address them are:
+\begin{itemize}
+\item \emph{Training}. Many Chilean Universities offer professional training programs to level up engineers and developers. These programs are usually costly and very long with a variable return on investment. 
+
+\item \emph{Metric control}. ISO-based quality models employ metrics to measure software development progress. ISO models are employed in several large European companies\footnote{\url{http://www.qualixo.com/Squale/squale.html}}. Similarly to the field of economy, metrics can be aggregated in a dashboard to monitor the software evolution\footnote{\url{http://www.castsoftware.com}}. These models are efficient to detect lack of quality in an application source code, however they are of little help on how to fix the situation since metrics output (\ie numbers) are not directly mappable to the defects.
+
+%\item \emph{Process improvement.} 
+
+\item \emph{Dedicated consulting}. Externalizing the control quality is a common practice\footnote{Many companies offers service for testing and assessing the quality of architecture, \eg \url{http://www.americaxxi.cl} and \url{http://www.lattix.com}}. This is often a punctual effort that cannot be easily used for a continuous monitoring and improvement.
+\end{itemize}
+
+
+
+%Software quality
+%Most software development effort is devoted to natural evolution \cite{Somm00a}. Lehman and Belady's Laws of Software Evolution stress this fact stating that software must continuously evolve to stay useful and that this evolution is accompanied by an increase of complexity \cite{Lehm96a}.
+%
+%\begin{quote}
+%\textbf{Continuous Changes.} {\em ``A program that is used must be
+%continually adapted, else it becomes progressively less satisfactory.''}
+%\end{quote}
+%
+%\begin{quote}
+%\textbf{Increasing Complexity.} {\em ``As a program is evolved its complexity
+%increases unless work is done to maintain or reduce it.''}
+%\end{quote}
+
+
+%Research problem
+%These two laws, deduced from empirical studies, show the need and the issues related to software evolution \cite{Deme02a}.
+
+%Additionally, the problem that companies are facing is that most of the changes cannot be predicted (unanticipated changes) because they are driven by the market and emerging trends and technologies. A number of different solutions have been proposed to cope with this problem, each tackling the evolution problem from a particular point of view. Model-Driven Development~\cite{Clar08b} is a software development methodology which focuses on creating abstractions close to some particular domain concepts rather than computing concepts. Component-based software development  \cite{Szyp98a}  advocates to build applications out of validated and substitutable components. Aspect-Oriented Programming (AOP)~\cite{Kicz97a} recognizes that changes cannot be reduced to change a single component but that they often cross-cuts the entire applications \cite{Kicz97a,Tarr99a}. However, such techniques and mechanisms cannot be directly applied to legacy applications since the long living applications we are interested to deal with are built without using models, components or aspects programming languages. Although numerous techniques have been further proposed to identify patterns in program source code~\cite{Khom09a}, identify patterns in a program history~\cite{Ambr09a}, help localize code duplication~\cite{DiLu01a}, most of them fail in directly improving the quality of a given software since too many assumptions are made that are not necessarily met by legacy system software programs.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Visualizing and Monitoring Evolution of Software Quality}
+
+\paragraph{Objectives}
+QualityMonitor is the product we envision to answer the following questions: \emph{How to help development teams to easily maintain and continuously monitor the quality of their software programs?} and \emph{What are the actions to be taken to improve the quality of the development?}. We address these questions using expressive visualization mechanisms. QualityMonitor produces for a given software a set of  ``radiographies'' to immediately visualize code anomalies, sub-optimal structure and assess the test coverage. Visual pattern are associated to a given list of actions to efficiently react, leading to an improvement of the coverage. 
+
+\paragraph{Example of visualizations}
+\figref{HapaoOnMondrian}, \figref{MOTreeMapLayoutEvolution} and \figref{MOGraphElementEvolution} are three visualizations obtained from an open source software. These visualizations are called \emph{test blueprint}, and they show the test coverage of the analyzed software. 
+
+\figref{HapaoOnMondrian} illustrates the principle of the visualization. Each large box is a class of the system. Class inheritance is indicated with edges. A superclass is above its subclasses. Each small inner box is a method. Invocation between methods is indicated with edges. An untested method has a red border. The height of a method is proportional to its complexity. The width says how many methods invoke the method. The gray intensity says how many times a method has been invoked by the tests (dark = tested many times).
+
+The figure indicates that the classes \texttt{MOAbstractGraph\-Layout} and \ct{C3} are relatively well tested: all but one of its methods are tested. The class contains some tall and dark methods, indicating the methods have been executed many times and in many different situations. Not all of the subclasses are well covered. For example, \ct{C1} is not covered at all. \ct{C2} contains 3 non-tested methods. One of them is tall, which indicates its complexity. Leaving a complex and untested software component is a risk for the general health of the application.
+
+\figref{MOTreeMapLayoutEvolution} shows the evolution of the class \ct{MOTreeMapLayout}. In the version 2.2 of the software, only three of its methods are covered. The presence of red methods indicated where to focus the testing effort. Gradually, the class went from a coverage of 27.27\% to 100\%, in Version 2.5.
+
+The visualization helps assessing the inherent complexity of a software. The above part of \figref{MOGraphElementEvolution} represents a central class of the software. It contains many methods, with many dependencies between them. The below part represents an improvement of the class: many methods have been removed (especially obsolete, unused and dead code), leading to a global improvement of the class. The Version 2.17 of the class contains many less methods and dependencies.
+
+\figLarge{}{0.6}{HapaoOnMondrian}{Example of test coverage visualization}
+\figLarge{}{0.5}{MOTreeMapLayoutEvolution}{Test coverage evolution}
+\figLarge{}{0.7}{MOGraphElementEvolution}{Complexity reduction}
+
+To keep this proposal under the imposed space constraint, only the \emph{test blueprint} visualization is here presented. Many more visualizations are available however\footnote{\url{http://www.moosetechnology.org/docs/visualhall}}.
+
+\paragraph{Remedy action}
+Visualizations identify deficiencies in the application source code. Each visualization comes with a set of actions to remedy the identified quality problems. 
+Consider the example given in \figref{HapaoOnMondrian} and \figref{MOGraphElementEvolution}.
+Uncovered components are indicated in red. In that case, new tests may simply be written and the red boxes will be turned gray. 
+
+The visualization plays here an important role. Instead of simply saying whether a component is covered or not, the visualization gives the \emph{context} in which the component has to be considered. This is important piece of information to decide whether or not the component is worth testing. Not all the components requires the same effort to test and not all of them are worth testing. Quality Monitor offers a set of interactions to drill down from the visualization to the source code, and tools to precisely identify components visually represented. Another benefit of this visualization is to monitor the reduction of complexity (\figref{MOGraphElementEvolution}).
+
+%Another symptom of a poor quality is a high intern complexity, exemplified in the upper part of \figref{MOGraphElementEvolution}. 
+
+\paragraph{Related work}
+Software quality has attracted the interested of numerous companies, including major software producers. 
+Numerous tools have been produced to assist developers to control the quality of their code. 
+
+Microsoft produced Pex and Visio. 
+Pex\footnote{\url{http://research.microsoft.com/en-us/projects/pex}} automatically generate unit test with a high coverage. It uses a sophisticated mathematical engine to generate unit tests. Pex and the visualization given in \figref{HapaoOnMondrian} address the same problem: increasing the test coverage. They however diverge on the way how to achieve this. Pex produces executable and ready to use unit tests for a given program input. Pex however does not determine which components are already tested. It is also ineffective to reduce internal software complexity.
+
+Visio\footnote{\url{http://office.microsoft.com/en-us/visio}} intensively uses visual diagrams for data and control flow. It offers sophisticated capabilities to use a data base as input and Visio drives it along visual diagrams. Visio is advertised as a diagram tool constructor and as a way to quickly and easily manipulate data bases. Its focus is rather different than what Quality Monitor proposes. For example, Visio cannot identify complex software components therefore it cannot help reducing this complexity.
+
+
+Fortify\footnote{\url{https://www.fortify.com/products/fortify360/index.html}} is ``a suite of tightly integrated solutions for identifying, prioritizing, and fixing security vulnerabilities in software. It automates key processes of developing and deploying secure applications.'' Fortify processes source code and apply some rules that checks proper usage of APIs, programming conventions and security. It also enables dynamic trace analysis. Fortify is about identifying and resorbing vulnerabilities. QualityMonitor has a different and complementary focus, which is the monitoring the quality. The primary focus addressed by Fortify is ``how to make software less vulnerable'', Quality Monitor focuses on ``how to make software easier and less costly to maintain''.
+
+It is well known that monitoring the evolution of software structure is important for the maintainability of it. Lattix\footnote{\url{http://www.lattix.com}} is a tool that graphically represents dependency cycles among software components. It uses a sophisticated ``dependency structural matrix'' to visually represent dependencies and their anomalies. The objective of Lattix is about identifying wrong dependencies. This is indeed within the range of Quality Monitor. Quality Monitor solves this very problem by using a different visual presentation (a graph instead of a matrix). In addition, Quality Monitor enables visualization to be tailored for a particular application, according to the culture and convention adopted in the programming style.
+
+%Cast software\footnote{\url{http://www.castsoftware.com}}
+
+\paragraph{Robust prototype}
+These visualizations have been obtained using the Moose platform. Moose\footnote{\url{http://www.moosetechnology.org}} is an open-source software analysis platform. Moose is the result of an international effort, in which the University of Chile, INRIA and the University of Bern are the principal actors. Moose is a robust prototype, principally used for research purpose. Moose has been in a constant development for more than 12 years. Based on numerous controlled experiments, we judge that Moose has now reached a level of maturity to conduct analysis on industrial and commercial software. 
+
+Moose has been employed to analyze the software of several large companies in France (Renault, Airbus, France Telecom), Argentina (Caesar Systems) and Chile (NIC Chile). Even if these analyzes where successful (\ie problems were identified and plan for addressing them were proposed), Moose remains a research prototype and not a product: documentation is missing and its implementation detached from practical considerations. Currently, conducting an analysis requires many technical steps, which represents a cost that a company cannot easily afford according to the experience we gained when realizing controlled experiments.
+
+The purpose of this Intel Challenge proposal is to give the necessary resources to build QualityMonitor, at the top of Moose. QualityMonitor will offer a  web interface to easily upload software source code and generate detailed report. 
+
+QualityMonitor is a stand-alone application, independent from any programming environment. The reason for keeping quality analyses away from production environment stems from the necessity to have different actors for producing software and assessing their quality.
+
+\paragraph{QualityMonitor and quality certification}
+Our primary target is the Chilean market as a short term penetration. The chilean software industry is particularly avid to quality certification in order to gain credibility. This is particularly relevant when producing software system for governmental agencies, military and exporting outside national boundaries.
+
+The \emph{Capability Maturity Model Integration} (CMMI) is a process development approach for companies producing software systems. Obtaining a CMMI level 2 or higher is often the ambition of chilean companies who wants to reach new market segments.
+
+Associating QualityMonitor to the CMMI certification is a perspective we started to investigate. The unique chilean company to deliver CMMI certification is America XXI\footnote{\url{http://www.americaxxi.cl}}. The Quality Monitor team visited America XII twice, in Oct 2009 and Apr 2011. The executive direction of America XXI welcomes Quality Monitor and they expressed their interest in collaborating. We plan to visit them again in February 2012, after the propulsion of Quality Monitor. Their interest in Quality Monitor stems from their weakness to analyze application source code. Most of their evaluation effort is concentrated on the process and the formalization of the requirements. Our expertise complements well theirs.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%\section{Related Work}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Business Model Canvas}
+
+\newcommand{\vspc}{\vspace{0.1cm}}
+We present the business model canvas\cite{Oste10a} associated to QualityMonitor. \vspc
+
+%\begin{itemize} 
+\noindent\emph{Customer segment}: companies developing software, either for themselves or for tierce clients.\vspc
+
+\noindent\emph{Value proposition}: (i) controlling the quality of software; (ii) increase the performance of the software; (iii) reduce the dependency between engineers and the produced software; (iv) real-time monitoring of the software development. \vspc
+
+\noindent\emph{Channels}: (i) The QualityMonitor product will be distributed via the Web (software to be analyze is uploaded on a website) or (ii) installed onsite. (iii) Adequate capacitation will then be offered to addressing defaults found by QualityMonitor in the analyzed software applications. \vspc
+
+\noindent\emph{Customer relationships}: personal assistance and product sell.\vspace{0.05cm}
+
+\noindent\emph{Revenue stream}: per use, license, subscription. \vspc
+
+\noindent\emph{Key resources}: (i) qualified human capital (excellent software programmers and engineers are essential for the business since they will have to report detailed analysis); (ii) non-disclosure agreement of the software analyses. \vspc
+
+\noindent\emph{Key activities}: analyzing software and proposing improvement to remove quality-associated default. Improvements will have to be quickly proposed to the clients. \vspc
+
+\noindent\emph{Key partnerships}: (i) Community around the Pharo programming language\footnote{\url{http://www.pharo-project.org}} (Pharo is used to build Moose); (ii) Community around the Moose software analysis platform. \vspc
+
+\noindent\emph{Cost structure}: (i) proposition for a premium-level quality; (ii) motivation for the value of the service; (iii) principal cost associated to the human capital. 
+%\end{itemize}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Timeline and budget}
+
+We envision the following milestones:
+
+\begin{itemize}
+\item August 2011 - Creation of Object Guidance
+\item October 2011 - Government sponsored 90,000 USD grant, \emph{Capital Semilla}. Two full time engineers will then be enrolled. 
+\item February 2012 - Implantation of Quality Monitor within two of our customers
+\item June 2012 - Online services publicly offered 
+\end{itemize}
+
+Engineers will be selected from the pool of students Object Guidance will interact with (e.g., bachelor and master internship).
+
+The average salary in Chile is about 1,800 USD per month for an experienced programmers. We plan an initial investment of 6,000 USD for the necessary infrastructure for software development (two laptops and one server). Local and internet connection will be provided by the University of Chile.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Object Guidance Team}
+
+Object Guidance will be created in August 2011 as a stock-based company.
+
+The current Team involved in the creation of Object Guidance is:
+\begin{itemize}
+\item Prof. Dr. Alexandre Bergel -- PhD University of Bern, Switzerland. Assistant Professor University of Chile. Expert in Software Quality.\\\url{http://bergel.eu}
+\item Dr. David R\"otlisberger -- PhD University of Bern, Switzerland. Postdoctoral in the Pleiad laboratory at the University of Chile. Expert in Software Quality.\\ \url{http://www.droethlisberger.ch}
+\item Marco Orellana Fuenzalida -- Civil Engineer in industry and Computer Science. University of Chile. Currently in charge of the business plan of Quality Monitor.
+\item Christian Palomares -- Civil Engineer in Computer Science. University of Chile. Experimented programmer.
+\item Romain Charnay -- Executive at the Novos\footnote{\url{http://novos.cl}} incubador
+\end{itemize}
+
+% bibliography
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\bibliographystyle{alpha}
+\bibliography{scg}
+
+\end{document}
