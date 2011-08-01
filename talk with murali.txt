@@ -1,0 +1,47 @@
+If you are going to use some of that information in that plan, I'd focus on more tables with the numerical data (where it is available), and possibly more headings for the text. 
+
+
+Quick question: I noticed that the Spanish plan mentions royalties with the University of Chile -- I thought that Moose was an MIT license? Or does that paragraph relate to you (Alexandre) and your shuffling between research work for the university and Object Guidance?
+
+
+
+I would try to come up with a metric on how much the use of Quality Monitor can save companies costs
+
+
+Is the product well described?
+
+
+-----
+DONE Saying why I think that I will get the grant
+DONE Say that Romain is an adverser, Christian and Marco will be full time. I know all of them, say for how long I have working with them
+
+DONE Say how much money they will earn by using QualityMonitor.
+Say how they got the percentage 50-75% in software maintenance
+
+DONE Modify "The reason for keeping quality analyses away from production environment stems from the necessity to have different actors for producing software and assessing their quality." => change "production environ" by "programming environment". Say that the user in companies are senior manager, architect, people in charge of the Quality and Assurance
+
+DONE Fix Market segment. It is not clear, just say who will be my customers
+
+DONE About: Lattix, say what they don't do.
+
+DONE The related work section does not have a conclusion
+
+DONE Moose is MIT, how can I prevent someone to use Moose instead of QualityMonitor. How much time it will prevent people from taking Moose and doing the same thing than QualityMonitor?
+
+-----
+
+DONE - Work on the last paragraph of the related work section. about visualization and testing, architecture. Something "unifying" in a solid context.
+
+DONE - add a second paragraph that says: if the paragraph is successful, then … we have the human expertise and existing relation with customer. 
+
+DONE - "Benefit for the clients". Backup my claim with what I put for ieee software
+
+DONE - Market segment. too vague. Maybe talk about small and medium sized companies and large one. say we target Chile. Compare the chilean companies with the european one. Say about Banco de chile and Codelco.
+
+DONE - Say more about what I will do with the money of Capital Semilla.
+
+DONE - Section 6: add a short summary paragraph.
+
+-----
+
+DONE - income and cost, say what are the assumption for the projection.
