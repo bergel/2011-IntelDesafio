@@ -304,11 +304,11 @@ QualityMonitor is a stand-alone application, independent from any programming en
 
 \fig{}{1}{BugReductions}{Evolution of software issues.}
 
-To effectively measure the benefit of QualityMonitor, we use as a case study the development of a medium-sized software system\footnote{The system is developed in an object-oriented programming language and is large of nearly 200 classes and 2,000 methods.} from April 2009 until January 2011. The software is architected and developed by 4 people, remotely distributed (1 developer in Chile, 2 in Switzerland and 1 in France). By being successful, the number of users of this software has rapidly increased, thus leading to frequent bug reports and requests for enhancements (what we call ``issue'' in general). The left-hand part of \figref{BugReductions} shows the distribution of software issues over the development period. Each of the 4 peaks (June 2009, January 2010, April 2010, April 2011) represents a deadline met by the customers of the monitored software: issues were found in the rush to meet their deadline. 
+To effectively measure the benefit of QualityMonitor, we use as a case study the development of a medium-sized software system\footnote{The system is developed in an object-oriented programming language and is large of nearly 200 classes and 2,000 methods.} from April 2009 until January 2011. The software is architected and developed by 4 people, remotely distributed (1 developer in Chile, 2 in Switzerland and 1 in France). By being successful, the number of users of this software has rapidly increased, thus leading to frequent bug reports and requests for enhancements (what we call here ``software issue''). The left-hand part of \figref{BugReductions} shows the distribution of software issues over the development period. Each of the 4 peaks (June 2009, January 2010, April 2010, April 2011) represents a deadline met by the customers of the monitored software: issues were found in the rush to meet their deadline. 
 
 The right-hand side of \figref{BugReductions} shows the number of open issues against time (less is better). The monitoring using QualityMonitor begun in May 2010. A first effect appeared in June 2010 with a reduction of the number of open issues: Visualizations and analysis given by QualityMonitor helped developers addressing the issues by improving the quality of the software in a step-wise fashion (as illustrated in \figref{MOTreeMapLayoutEvolution} and \figref{MOGraphElementEvolution}). Since QualityMonitor is employed the number of open issues has been in a constant reduction, demonstrating that the development process is able to quickly absorb customer requests and bug fixes.
 
-The total length of the project is 22 months. By discussing the benefit of QualityMonitor with the 4 developers of the monitored software, it appears that our expertise helped them shortening the development time by 3 months, thus 1 month for 7 months of development.
+The total length of the project is 22 months. By discussing the benefit of QualityMonitor with the 4 developers of the monitored software, it appears that our expertise helped them shortening the development time by 3 months, thus \emph{1 month for 7 months of development}.
 
 \paragraph{QualityMonitor and quality certification.}
 Our primary target is the Chilean market as a short term penetration. The Chilean software industry is avid to quality certification in order to gain international credibility. This is particularly relevant when producing software system for governmental agencies, military and exporting outside national boundaries.
@@ -357,9 +357,9 @@ These problems are well known. Solutions that are commonly employed to prevent o
 \seclabel{technologicalfactor}
 \paragraph{Technological factor.} The current prototype of QualityMonitor analyzes applications written in the Java, C, and Smalltalk programming languages. In 2008, about 40\% of software produced in Chile used the Java programming language and 17\% used .Net\footnote{Source: ``Sexto Diagnostico de la Industria Nacional de Software y Servicios'' realized by the GECHS.}. The share of Java is estimated at 25\% \dr{in the sentence above it says 40\%?} and 50\% for .Net. Targeting .Net languages, including C\# and Visual Basic, are critical for a deep penetration of QualityMonitor.\dr{again, how fits C in this picture here? No numbers are given for C (neither for Smalltalk) --- do you actually mean C\#? It also does not become clear whether .Net / C\# is already (partially) supported by QualityMonitor or whether one of the goals of this proposal to add such support.}
 
-\paragraph{Expected grow.} South-America is often seen as an outsourcing place for software development. Our participation in the SPIN Chile, an industrial network for companies having an interest in software and process quality, revealed that a large proportion of companies are willing to gain access to the European and North-American market. In addition, the number of students in universities taking Computer Science lectures is slightly increasing, which is contrary to the global trend: most European universities see the number of students in Computer Science diminishing. All this provides solid guarantees that the Chilean IT market will continue to grow, as it did over the last few years.
+\paragraph{Expected grow.} South-America is often seen as an outsourcing place for software development. Our participation in SPIN Chile, an industrial network for companies having an interest in software and process quality, revealed that a large proportion of companies are willing to gain access to the European and North-American market. In addition, the number of students in universities taking Computer Science lectures is slightly increasing, which is contrary to the global trend: most European universities see the number of students in Computer Science being reduced. All this provides solid guarantees that the Chilean IT market will continue to grow, as it did over the last few years.
 
-\paragraph{Market segment.} The core market segment we are targeting are companies that produce software in Chile. We estimate the number of potential companies at 350, as mentioned earlier. 
+\paragraph{Market segment.} The core market segment we are targeting are companies that produce software in Chile. We estimate the number of potential companies to be 350, as mentioned earlier. 
 
 %Our market segment includes both small and large companies. We also do not distinguish wether a company has already adopted or not a QualityMonitoring process. According to our experience, this point constitutes a major difference between the French and Chilean companies we have been dealing with. We have noticed a greater use in Europe of essential quality effort such as unit testing and continuous integration server, two classical software engineering techniques to implement recommendation made by QualityMonitor.
 
@@ -423,13 +423,13 @@ We envision the following milestones for the first year:
 
 \fig{}{1}{income}{Cost and income of Object Guidance}
 
-\figref{income} presents the income and cost of Object Guidance. We expect an initial cost of 6,000 USD for computer acquisition. On Month 4 we will then have a third employee, in charge of the marketing. This will raise the cost up to 6,000 USD per month for the salaries. 
+\figref{income} presents the prevision of income and cost of Object Guidance for the two first years. We expect an initial cost of 6,000 USD for computer acquisition. On Month 4 we will then have a third employee, in charge of the marketing. This will raise the cost up to 6,000 USD per month for the salaries. 
 
-Each new client will bring an income of 1,000 USD, plus a month subscription of 200 USD. This subscription will cover the cost and maintenance of the project monitoring. The initial fee for the clients and the subscription is the reason why the curve of income is not smooth over the time.
+Each new client will bring a one-shot income of 1,000 USD, plus a monthly subscription of 200 USD. This subscription will cover the cost and maintenance of the project monitoring. The initial fee for the clients and the subscription is the reason why the curve of income is not smooth over the time.
 
-Income will be greater than the cost on Month 14. Once QualityMonitor will be reach a stage of commercialization, for 8 consecutive months we will have between 4 and 5 new clients per months. 
+Income will be greater than the cost on Month 14. Once QualityMonitor will reach a stage of commercialization (after 12 months), for 8 consecutive months we will have between 4 and 5 new clients per months. 
 
-We expect the following figure for the first two actives years of QualityMonitor:
+We expect the following figures for the first two active years of QualityMonitor:
 \begin{center}
 \begin{tabular}{|r|r|r|}
 \hline
@@ -440,23 +440,23 @@ We expect the following figure for the first two actives years of QualityMonitor
 \end{tabular}
 \end{center}
 
-Appendix A details the prevision made above.
+Appendix A, given at the end of this document, details the prevision made above.
 
 \paragraph{Grant.} Capital Semilla is a program sponsored by the Chilean Government (CORFO) to ease the creation of startups\footnote{\url{http://www.corfo.cl/lineas_de_apoyo/programas/capital_semilla_apoyo_a_la_puesta_en_marcha}}. Together with the Novos incubator, we are postulating to the Capital Semilla program. After being interviewed and having our description reviewed by a selective panel, we have been selected for the final phase. The incubator is confident we will obtain the grant since we comply with the priorities set by CORFO: 
 
 \begin{itemize}
 \item we have a strong research result that has been scientifically recognized\footnote{\url{http://bergel.eu/publications.html}} and validated in European companies
 \item we have a strong and stable contact with international research institutions (A. Bergel is the principal investigator of a major project with INRIA\footnote{\url{http://inria.fr}, \url{http://pleiad.dcc.uchile.cl/research/plomo}}, the French Research Institute in Computer Science)
-\item there is a realistic perspective to export abroad QualityMonitor, a technology developed in Chile. QualityMonitor has been tried in a company in Argentina, and contributors to the Moose open source project (located in Switzerland and in France) are positively welcoming our effort. The situation is favorable for using companies associated to Moose contributors as a testbed for QualityMonitor.
+\item there is a realistic perspective to export abroad QualityMonitor, a technology developed in Chile. QualityMonitor has been used in a company in Argentina, and contributors to the Moose open source project (located in Switzerland and in France) are positively welcoming our effort. The situation is favorable for using companies associated to Moose contributors as a testbed for QualityMonitor.
 \end{itemize}
 
-\paragraph{Initial engineering force.} Object Guidance will be entitled to receive internship students from the University of Chile. This mechanism will be used to identify potential engineers.
+\paragraph{Initial engineering force.} Object Guidance will be entitled to receive students from the University of Chile for an internship. This mechanism will be used to identify potential engineers.
 
-The average salary in Chile is about 2,000 USD per month for an experienced programmers. We plan an initial investment of 6,000 USD for the necessary infrastructure for software development (two laptops and one server). Even if no agreement has been signed already, local and internet connection are likely to be provided by the University of Chile and the Novos incubator. 
+The average salary in Chile is about 2,000 USD per month for an experienced programmer. We plan an initial investment of 6,000 USD for the necessary infrastructure for software development (two laptops and one server). Even if no agreement has been signed already, local and internet connection are likely to be provided by the University of Chile and the Novos incubator. 
 
 The 90,000 USD grant will therefore cover the initial 6,000 USD, leaving 42 man month, which will be used to develop QualityMonitor. 
 
-The first prize of the Desafio Intel competition is 15,000 USD. The award will be used to initiate a marketing force by hiring a dedicated person for 6 months, full-time, totaling 12,000 USD. The remaining 3,000 USD will be used to development the corporative image of Object Guidance, which includes creation of a website and an advertising strategy.
+The first prize of the Desafio Intel competition is 15,000 USD. The award will be used to initiate a marketing force by hiring a dedicated person for 6 months, full-time, totaling 12,000 USD. The remaining 3,000 USD of the Desafio Intel award will be used to development the corporative image of Object Guidance, which includes creation of a website and an advertising strategy.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Object Guidance: The Company and the Team} \seclabel{team}
@@ -465,8 +465,9 @@ Object Guidance is the company that will sell the QualityMonitor products, sell 
 
 The current Team involved in the creation of Object Guidance is:
 \begin{itemize}
-\item Prof. Dr. Alexandre Bergel -- PhD University of Bern, Switzerland. Assistant Professor at the University of Chile. Expert in Software Quality and Software analyzes. Website: \url{http://bergel.eu}
-\item Dr. David R\"othlisberger -- PhD in computer science and Bachelor in business administration from the University of Bern, Switzerland. Postdoctoral in the Pleiad laboratory at the University of Chile. Expert in Software Quality and Software analyzes. A. Bergel and D. R\"othlisberger know each other for more than 8 years: both did their PhDs at the University of Bern. Website: \url{http://www.droethlisberger.ch}
+
+\item Prof. Dr. Alexandre Bergel -- PhD University of Bern, Switzerland. Assistant Professor at the University of Chile. Expert in Software Quality and Software Analysis. Website: \url{http://bergel.eu}
+\item Dr. David R\"othlisberger -- PhD in computer science and Bachelor in business administration from the University of Bern, Switzerland. Postdoctoral in the Pleiad laboratory at the University of Chile. Expert in Software Quality and Software Analysis. A. Bergel and D. R\"othlisberger know each other for more than 8 years: both did their PhDs at the University of Bern. Website: \url{http://www.droethlisberger.ch}
 \item Marco Orellana Fuenzalida -- Civil Engineer in industry and Computer Science. University of Chile. Currently in charge of the business plan of QualityMonitor and contacting clients. Marco has worked with R. Charnay and A. Bergel since October 2010. Marco will be full time employee at Object Guidance.
 \item Christian Palomares -- Civil Engineer in Computer Science. University of Chile. Experimented programmer. C. Palomares is a student of A. Bergel. They know each other for more than 1.5 years. Christian will be full time employee at Object Guidance.
 \item Romain Charnay -- Executive at the Novos\footnote{\url{http://novos.cl}} incubator. R. Charnay and A. Bergel have been working for more than 2 years on defining the strategy to create Object Guidance and launch QualityMonitor. R. Charnay has provided invaluable advises.
@@ -474,7 +475,7 @@ The current Team involved in the creation of Object Guidance is:
 
 Object Guidance will have strong links to the University of Chile since Alexandre Bergel and Dr. David R\"othlisberger will maintain their positions at the University of Chile. However, the company will be legally independent of the University of Chile. No legal mention of the benefits will therefore be made. 
 
-Object Guidance will be created in August 2011 as a stock-based company. At the moment of writing this business plan, all the paperwork has been provided to Jaime Luarte Correa, lawyer at Brokering \& Luarte, a company that provides legal services\footnote{\url{http://bylabogados.cl}}. The corporative identity has been realized by Volta design\footnote{\url{http://www.estudiovolta.com}}, it is available online\footnote{\url{http://www.estudiovolta.com/portafolio/quality-monitor}}.
+Object Guidance will be created in August 2011 as a stock-based company. At the moment of writing this business plan, all the necessary and legal papers have been provided to Jaime Luarte Correa, lawyer at Brokering \& Luarte, a company that provides legal services\footnote{\url{http://bylabogados.cl}}. The corporative identity has been realized by Volta design\footnote{\url{http://www.estudiovolta.com}}. The logo and other visual elements of the image are available online\footnote{\url{http://www.estudiovolta.com/portafolio/quality-monitor}}.
 
 Object Guidance is advised by Novos, the incubator associated to the University of Chile. Novos is helping the creation of Object Guidance by establishing the contact with designer, lawyer and the Chilean public funding agency for the Capital Semilla.
 
