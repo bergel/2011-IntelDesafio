@@ -115,7 +115,7 @@
 		{\colorbox{#2}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}
 		{\textcolor{#2}{\sf\small$\blacktriangleright$\textit{#3}$\blacktriangleleft$}}}
 	 \newcommand{\version}{\emph{\scriptsize$-$Id$-$}}}
-	{\newcommand{\nb}[2]{}
+	{\newcommand{\nb}[3]{}
 	 \newcommand{\version}{}}
 \newcommand{\rev}[2]{\nb{Reviewer #1}{red}{#2}}
 \newcommand{\ab}[1]{\nb{Alexandre}{blue}{#1}}
@@ -182,15 +182,17 @@
 
 %250 words
 \begin{abstract}
+Companies that produce software spend between 50\% and 75\% of their resources in maintaining their software, activity that includes fixing bugs, adding missing features and redoing broken software. This incurs a billion dollars cost to the global software industry.
+
 The success of a software strongly depends on the ability of the software to adapt to new user requirements. However, modifying a software is not always an easy task. A high quality software is easier to adapt and improve. A software that is poorly conceived, independently whether it is functional or not, is costly to change and adapt. 
 
-Unfortunately, quality is difficult to achieve without proper monitoring tools and methodologies. Numerous tools have been proposed to assist software development, however they are either restricted to a specific problem range or are considered too ``academic'' (identified quality problems are not always understandable by a non-expert). Moreover, many of the available tools perform well to identify problems but provide little indication on how to remove those problems.
+Unfortunately, quality is difficult to achieve without proper monitoring tools and methodologies. Numerous tools have been proposed to assist software development, however they are either restricted to a specific problem range or are considered too ``academic'' (identified quality problems are not always understandable by a non-expert). %Moreover, many of the available tools perform well to identify problems but provide little indication on how to remove those problems.
 
-QualityMonitor is a product to monitor the quality of software source code. QualityMonitor innovates by delivering intuitive software visualizations to monitor quality. These software radiographies are accompanied with detailed but comprehensible indications on how to address quality deficiencies.  QualityMonitor's visualizations are adjustable to the corporative programming conventions and particularities of the analyzed software, making it more flexible and agile than concurrent solutions.
+QualityMonitor is a product and services to monitor the quality of software source code. QualityMonitor innovates by delivering intuitive software visualizations to monitor quality. These software radiographies are accompanied with detailed but comprehensible indications on how to address quality deficiencies.  QualityMonitor's visualizations are adjustable to the corporative programming conventions and particularities of the analyzed software, making it more flexible and agile than concurrent solutions.
 
 In 2009, software maintenance costed the entire Chilean market 437 millions USD according to a survey sponsored by Microsoft and the Chilean government. The controlled experiments we realized in Europe and in South-America with our functional prototype suggest a significant reduction of maintenance cost. 
 
-We identified three large and prominent IT companies (Coasin\footnote{\url{http://www.coasin.com}}, NIC Chile\footnote{\url{http://www.nic.cl}}, Sonda\footnote{\url{http://www.sonda.com/portada}}) that are expressing their interest in QualityMonitor. The problems these companies are facing are similar: a large software, developed over a long period, has to be maintained and enhanced with new features, however, the knowledge of its internal has evaded with changes of the development team. By drawing high level representations of software internals, QualityMonitor recovers this knowledge, thus facilitating evolution and maintenance.
+We have surveyed and are interacting with large and prominent IT companies who are expressing their interest in QualityMonitor. The problems these companies are facing are similar: they have produced a large software, developed over a long period, has to be maintained and enhanced with new features, however, the knowledge of its internal has evaded with changes of the development team. By drawing high level representations of software internals, QualityMonitor recovers this knowledge, thus facilitating evolution and maintenance.
 
 %The interaction we have with these companies is currently on hold, since the bootstrap of QualityMonitor depends very much of external financial resources. 
 
@@ -203,21 +205,25 @@ The product and services of QualityMonitor will be operated by Object Guidance, 
 %Computer science is still a ``young'' science, the activity to build software is not fully understood and mastered yet. Software engineering is expensive and large resources are necessary to deliver software of quality (\ie bugfree, robust, extendable with new features at a low cost). Sommerville~\cite{Somm00a} and Davis~\cite{Davi95a} estimate that the cost of software maintenance accounts for 50\% to 75\% of the overall cost of a software system. \textbf{SAY MORE}
 
 \paragraph{Software Quality by Example.}
-During a workshop on software quality\footnote{\url{http://www.systematic-paris-region.org}} in September 2008, A. Bergel demonstrated an early prototype of QualityMonitor. A quality assurance architect working for a major European car industry presented the following problem:
+During a workshop on software quality\footnote{\url{http://www.systematic-paris-region.org}} held in September 2008 in Paris, A. Bergel demonstrated an early prototype of QualityMonitor to a group of large industries. A quality assurance architect working for a major European car industry presented the following problem:
 \begin{quote}
-\emph{``I am in charge of the quality assurance for a large European automobile firm. The largest part of our production chain is controlled by a massive software. We have been working on this software for more than 15 years. The software has more than 2.5 millions lines of code and is developed in C (80\% of the total amount of source code), C++ (19.5\%) and few homemade languages (0.5\%).}
+\emph{``I am in charge of the quality assurance for a large European automobile firm. The largest part of our production chain is controlled by a massive software. We have been working on this software for more than 15 years. The software has more than 2.5 millions lines of code and is developed in C (80\% of the total amount of source code), C++ (19.5\%) and few homemade languages (0.5\%). Original people who developed it are now gone. We replaced them, but we couldn't recover the original intent of the software.}
 
-\emph{Plotting the maintenance cost against the software change is an exponential curve: costs to maintain our software are increasing in a non linear fashion. It is becoming impossible to precisely predict and control the cost of each new release.''}
+\emph{Plotting the maintenance cost against the time is an exponential curve: costs to maintain our software are increasing in a non linear fashion. Costs are not predictable anymore. They are running out of control!''}
 \end{quote}
 
+This example is not singular. In fact, according to our experience with European and Chilean software industries, all the software producers we have met suffer from software quality problems.
 This situation is found in any software producer that has not adopted a proper solution to monitor software development quality.
+
+\paragraph{Vision.} QualityMonitor will assist companies to produce better software and ease the software maintenance activities. By increasing the quality of software development, the total cost of a software development is reduced by 20\%-50\%.
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-\section{Concept and Product: QualityMonitor}
+\section{Concept and Product: QualityMonitor} \seclabel{qualityMonitor}
 
 \paragraph{Objectives.}
-QualityMonitor is the product we envision to answer the following questions: \emph{How to help development teams to easily maintain and continuously monitor the quality of their software programs?} and \emph{What are the actions to be taken to improve the quality of software development?}. We address these questions using expressive visualization mechanisms and automatic report generation. QualityMonitor automatically send code quality reports based on the produced visualizations.
+QualityMonitor is the product and services we envision to answer the following questions: \emph{How to help development teams to easily maintain and continuously monitor the quality of their software programs?} and \emph{What are the actions to be taken to improve the quality of software development?}. We address these questions using expressive visualization mechanisms and automatic report generation. QualityMonitor automatically send code quality reports based on the produced visualizations.
 
 QualityMonitor produces for a given software a set of  ``radiographies'' to immediately visualize code anomalies, sub-optimal structure and assess the test coverage. Test coverage shows which portion of the software is actually tested with the automatized and repeatable unit tests of the analyzed software. Visual patterns are associated with a given list of actions to efficiently react, in order to improve structure and test coverage of the software. 
 
@@ -247,7 +253,7 @@ Visualizations identify deficiencies in the software source code. Each visualiza
 Consider the example given in \figref{HapaoOnMondrian} and \figref{MOGraphElementEvolution}.
 Uncovered components are indicated in red. In that case, new tests may simply be written and the red boxes will turn gray. 
 
-Visualization play an important role in QualityMonitor. Instead of simply saying whether a component is covered or not, the visualization gives the \emph{context} in which the component has to be considered. This is an important piece of information to decide whether or not the component is worth testing. Not all components require the same effort to test and not all of them are worth testing. QualityMonitor offers a set of interactions to drill down from the visualization to the source code, and tools to precisely identify source code of the visually represented components. Another benefit of visualizations is to monitor the reduction of complexity (\figref{MOGraphElementEvolution}).
+Visualizations play an important role in QualityMonitor. Instead of simply saying whether a component is covered or not, the visualization gives the \emph{context} in which the component has to be considered. This is an important piece of information to decide whether or not the component is worth testing. Not all components require the same effort to test and not all of them are worth testing. QualityMonitor offers a set of interactions to drill down from the visualization to the source code, and tools to precisely identify source code of the visually represented components. Another benefit of visualizations is to monitor the reduction of complexity (\figref{MOGraphElementEvolution}).
 
 %Another symptom of a poor quality is a high intern complexity, exemplified in the upper part of \figref{MOGraphElementEvolution}. 
 
@@ -275,15 +281,22 @@ We have tried to identify what are the reasons for their interest in QualityMoni
 \begin{itemize}
 \item QualityMonitor is backed up with a significant number of scientific results. A. Bergel and D. R\"othlisberger published in the most prestigious conferences (\secref{team}).
 \item People behind QualityMonitor are working at the University of Chile, a prominent institution: University of Chile is considered as the ``top'' Chilean University and is internationally well ranked\footnote{\url{http://www.topuniversities.com/institution/universidad-de-chile/wur}}.
-\item International composition of the Object Guidance team. An important socio-cultural factor in Chile is to positively perceive the interaction with Europa and North-America.
-\item Experience of the Object Guidance team. The presentations we give to our potential customers are driven by the problems we identified during our extensive experience in the field. Customers find themselves in the problems we exposes during our presentations.
+\item International composition of the Object Guidance team. An important socio-cultural factor in Chile is to positively perceive the interaction with European and North-Americans.
+\item Experience of the Object Guidance team. The presentation we give to our potential customers are driven by the problems we identified during our extensive experience in the field. Customers find themselves in the problems we exposes during our presentations.
 \end{itemize}
 
 
 \paragraph{Robust prototype.}
-Moose\footnote{\url{http://www.moosetechnology.org}} is an open-source software analysis platform. Moose is the result of an international effort, in which the University of Chile, INRIA and the University of Bern are the principal actors. Moose is a robust prototype, principally used for research purposes. Moose has been under constant development for more than 12 years. Based on numerous controlled experiments, we judge that Moose has now reached a level of maturity to conduct analysis on industrial and commercial software. 
+Moose\footnote{\url{http://www.moosetechnology.org}} is an open-source software analysis platform. Moose is the result of an international effort, in which the University of Chile, INRIA (France) and the University of Bern (Switzerland) are the principal actors. Moose is a robust prototype, principally used for research purposes. Moose has been under constant development for more than 12 years. Based on numerous controlled experiments, we judge that Moose has now reached a level of maturity to conduct analysis on industrial and commercial software. 
 
-Moose is distributed under the MIT license\footnote{\url{http://www.opensource.org/licenses/mit-license.php}}, an open source license. This implies that anyone can take Moose and build a software similar than QualityMonitor. In practice, this represents a minimal risk. According to our experience in training people for Moose, it takes approximately 6 months for an engineer to be trained before being able to conduct software quality analysis with Moose. Based on the average salary of a software engineer in Chile (2,000 USD), this represents a cost of 12,000 USD, which is way above the cost of adopting QualityMonitor, estimated at 2,200 USD for a 6-month project (cf. next section). 
+Moose has been employed to analyze the software of several large companies in France (Renault, Airbus, France Telecom), Argentina (Caesar Systems) and Chile (NIC Chile). Even though these analyses were successful (\ie problems were identified and plans for addressing them were proposed), Moose remains a research prototype and not a product: documentation is missing and its implementation is detached from practical considerations. Currently, conducting an analysis requires many technical steps, which represents a cost that a company cannot easily afford according to the experience we gained when realizing controlled experiments.
+
+The purpose of this Intel Challenge proposal is to give the necessary resources to build QualityMonitor, a facade for Moose to ease its use and exploitation. QualityMonitor will offer a  web interface to easily upload software source code and generate detailed reports. 
+
+QualityMonitor is a stand-alone application, independent from any programming environment. QualityMonitor analyzes software source code. The programming languages supported by the current prototype of QualityMonitor are Java, C \dr{not C++ or C\#? This is strange that C as non-OO language is supported} and Smalltalk. \secref{technologicalfactor} details the technological factor against the current market.
+
+\paragraph{Minimal risk for plagiarism.} 
+Moose is distributed under the MIT license\footnote{\url{http://www.opensource.org/licenses/mit-license.php}}, an open source license. This implies that anyone can take Moose and build a software similar to QualityMonitor. In practice, this represents a minimal risk. According to our experience in training people for Moose, it takes approximately 6 months for an engineer to be trained before being able to conduct software quality analysis with Moose. Based on the average salary of a software engineer in Chile (2,000 USD), this represents a cost of 12,000 USD, which is way above the cost of adopting QualityMonitor, estimated at 2,200 USD for a 6-month project (cf. next section). 
 
 Even if one would clone QualityMonitor, a significant amount of effort is necessary to be recognized in Chile: 
 \begin{itemize}
@@ -294,11 +307,6 @@ Even if one would clone QualityMonitor, a significant amount of effort is necess
 
 For this reason, even if the possibility of cloning QualityMonitor exists, we believe this imposes a minor threat.
 
-Moose has been employed to analyze the software of several large companies in France (Renault, Airbus, France Telecom), Argentina (Caesar Systems) and Chile (NIC Chile). Even though these analyses were successful (\ie problems were identified and plans for addressing them were proposed), Moose remains a research prototype and not a product: documentation is missing and its implementation is detached from practical considerations. Currently, conducting an analysis requires many technical steps, which represents a cost that a company cannot easily afford according to the experience we gained when realizing controlled experiments.
-
-The purpose of this Intel Challenge proposal is to give the necessary resources to build QualityMonitor, a facade for Moose to ease its use and exploitation. QualityMonitor will offer a  web interface to easily upload software source code and generate detailed reports. 
-
-QualityMonitor is a stand-alone application, independent from any programming environment. QualityMonitor analyzes software source code. The programming languages supported by the current prototype of QualityMonitor are Java, C \dr{not C++ or C\#? This is strange that C as non-OO language is supported} and Smalltalk. \secref{technologicalfactor} details the technological factor against the current market.
 
 %\fig{}{1}{Benefit}{Cost of a 6 months project monitored }
 \paragraph{Benefits for the clients.} Consider a software company consisting of 6 employees. In Chile, the average monthly salary per engineer, including taxes, is about 2,000 USD. The total cost for the salaries is therefore 12,000 USD per month. Over a seven-month project, the cost is therefore 84,000 USD. By using QualityMonitor, we forecast a reduction of the project length by one month. The cost of QualityMonitor for a 6 months period is 2,200 USD (200 USD per month plus 1,000 USD for the initial setup cost). \textbf{The total savings for the company for a seven-month project is 9,800 USD}. This forecast has been made according to our consulting activities previously realized, as described below.
@@ -380,33 +388,51 @@ Currently, there is a regular tax of 15\% on selling software. This tax is usual
 %\footnote{\url{http://www.innovacion.cl/noticia/impulso-competitivo-fondequip}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Business Model Canvas}
+\section{Commercial strategy}
 
-\newcommand{\vspc}{\vspace{0.1cm}}
-We present the business model canvas~\cite{Oste10a} associated to QualityMonitor. \vspc
+Our commercial strategy is based on two essential steps: (i) actively working with a few strong local companies; (ii) supporting the expansion of QualityMonitor into clients and providers of these companies.
 
-%\begin{itemize} 
-\noindent\emph{Customer segment}: companies developing software, either for themselves or for tierce clients.\vspc
+\paragraph{Making local actors happy.} We are have consulted four chilean companies: Coasin\footnote{\url{http://www.coasin.com}}, NIC Chile\footnote{\url{http://www.nic.cl}}, Copec\footnote{\url{http://www.copec.cl}}, Sonda\footnote{\url{http://www.sonda.com/portada}}. We have analyzed their problems, needs and expectation. Their input shaped our commercial strategy.
 
-\noindent\emph{Value proposition}: (i) controlling the quality of software; (ii) increase the performance of the software development; (iii) reduce the dependency between engineers and the produced software; (iv) real-time monitoring of the software development. \vspc
+We currently implementing QualityMonitor in Copec, the Petroleum Chilean company. Copec outsourced a large software and the company is experiencing numerous serious quality problems and defects in the software. Copec is currently undergoing an assessment on how to resolve these quality problems with their provider. An important milestone of our commercial strategy is to help Copec in his assessment effort. Copec is willing to use QualityMonitor as a pilot before imposing it to is software providers.
 
-\noindent\emph{Channels}: (i) The QualityMonitor product will be distributed via the Web (the software to be analyzed is uploaded on a website) or (ii) installed onsite at the customer's headquarters. (iii) Adequate capacitation \dr{can you elaborate on this term? not clear whether you mean consulting, tools, training, etc.} will then be offered to addressing defaults found by QualityMonitor in the analyzed software applications. \vspc
+The first two years of QualityMonitor will seek the complete satisfaction of these 3 Chilean companies. This is key for the recognition of QualityMonitor as a solution for improving software quality. Helping a strong local company is the first milestone of our strategy. A ripple effect among branches and offices and is then expected that will bring QualityMonitor outside Chile. 
 
-\noindent\emph{Customer relationships}: personal assistance and product sell.\vspace{0.05cm}
+\paragraph{3 services.}
+Once QualityMonitor is recognized by our Chilean customers, QualityMonitor will be ready to be publicly open. 3 services will be offered around the QualityMonitor product:
 
-\noindent\emph{Revenue stream}: per use, license, subscription. \vspc
+\begin{itemize}
+\item \emph{Free}: A reduced but effective service. Clients will be able to select half of the analysis supported by QualityMonitor. Report will be automatically produced and then sent via email. This free service is solely realized via a web portal. 
+\item \emph{Silver}: Clients will receive the full set of the analysis supported by QualityMonitor. As for the free version, reports will be automatically produced and then sent by email. This service has a cost.
+\item \emph{Gold}: In addition to the silver service, clients will receive a monitoring by the QualityMonitor team. In addition to the report, QualityMonitor will assist clients in their effort to address identified quality problems. Clients will also be able to install a local version of QualityMonitor. This is particularly adequate in case of clients are unwilling from sending their source code via the Web.  
+\end{itemize}
 
-\noindent\emph{Key resources}: (i) qualified human capital (excellent software programmers and engineers are essential for the business since they will have to report detailed analysis \dr{unclear. report on the detailed analysis of the tool, perform the detailed analysis?}; (ii) non-disclosure agreement of the software analyses. \vspc
-
-\noindent\emph{Key activities}: analyzing software and proposing improvement to remove quality-associated defaults. Improvements will have to be quickly proposed to the clients. \vspc
-
-\noindent\emph{Key partnerships}: (i) Community around the Pharo programming language\footnote{\url{http://www.pharo-project.org}} (Pharo is used to build Moose); (ii) Community around the Moose software analysis platform. \vspc
-
-\noindent\emph{Cost structure}: (i) proposition for a premium-level quality; (ii) motivation for the value of the service; (iii) principal cost associated to the human capital. 
-%\end{itemize}
+These 3 services will make QualityMonitor accessible to both small companies that have limited resources and large companies. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Timeline and budget}
+%\section{Marketing strategy}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Startup and Financial tool}
+
+\paragraph{Startup.} Steve Blank\footnote{\url{http://steveblank.com}} coined ``A startup is an organization formed to search for a repeatable and scalable business model''. According to this definition, the business plan intends to make Object Guidance a startup. 
+
+Currently, making a software assessment with Moose takes about \textbf{\emph{two weeks}} for one expert person. These two weeks includes fixing technical details during the program source code analysis, producing the report within office tools such as Word and Excel, and extracting the architecture of the analyzed software. 
+
+The overall objective of our enterprising effort is to reduce our personal involvement with QualityMonitor to analyze software, meaning that no time has to be allocated by the QualityMonitor team to realize a software analysis. Once we reach the stage that the cost of realizing an analyze is expressed in term of server power instead of man power, services offered around QualityMonitor will be scalable. 
+
+The free and silver services are scalable since no human action from the object guidance team is involved. All the report are automatically produced, available online and sent to the client via email. 
+
+The Gold service for QualityMonitor involves human activities to follow clients progresses by suggesting recommendations for improvement. Clearly, this service may be a bottleneck against the scalability we are seeking. Possible solutions comprise (i) online lectures to cover general problems and (ii) automatized recommendation systems.
+
+\paragraph{Price-to-earnings.}
+Object Guidance is a \emph{sociedad por actions} under the Chilean chamber of commerce. Its capital is therefore evaluated in terms of stocks. 
+
+The \emph{price-to-earnings ratio} (P/E) is a financial tools\footnote{\url{http://en.wikipedia.org/wiki/P/E_ratio}} applied to evaluate stock value. A high P/E ratio means that paying more for each unit of net income. The P/E ratio is often expressed in terms of years: it shows the number of years of earnings which are required to pay back purchase, ignoring inflation. 
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Timeline and budget} \seclabel{currentResources}
 
 %Extending the range of supported programming languages. Widely used languages includes: C\#, Visual Basic, PHP.
 
@@ -420,7 +446,7 @@ We envision the following milestones for the first year:
 \end{itemize}
 
 
-\fig{}{1}{income}{Cost and income of Object Guidance}
+\fig{}{0.6}{income}{Cost and income of Object Guidance}
 
 \figref{income} presents the prevision of income and cost of Object Guidance for the two first years. We expect an initial cost of 6,000 USD for computer acquisition. On Month 4 we will then have a third employee, in charge of the marketing. This will raise the cost up to 6,000 USD per month for the salaries. 
 
@@ -458,6 +484,72 @@ The 90,000 USD grant will therefore cover the initial 6,000 USD, leaving 42 man 
 The first prize of the Desafio Intel competition is 15,000 USD. The award will be used to initiate a marketing force by hiring a dedicated person for 6 months, full-time, totaling 12,000 USD. The remaining 3,000 USD of the Desafio Intel award will be used to development the corporative image of Object Guidance, which includes creation of a website and an advertising strategy.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{From a Startup to a Global Player}
+
+%Points from Amit: 
+%
+%Emphasize:
+%- Chile brand, geography no matter /Israel
+%- 50,000 employees instead of 50 customers
+%- Team: achievements, started a company, have existing relationships in Switzerland, team is global. 
+%
+%Research into the numbers -- what are the numbers (size of the market, etc) for the global market, not just Chile? 
+%
+%Can display multiple projections
+% - optimistic projections, if you had more resources 
+% - conservative ones with no extra resources
+%Idea is that "this is a great company and a great idea, with investment we will be very successful"
+%
+%Mean revenue multiplier of SaaS companies, publicly traded
+%
+%For a business plan competition, have to pitch high-level vision, not low-level execution details
+
+QualityMonitor via Object Guidance will be targeted for the Chilean market during the first year. After 12 months, we will be able to offer a global and experienced solution. Two realistic projections of Object Guidance are made below.
+
+\paragraph{Conservative projection. } We are a solid, united and competent team (\secref{team}). The development of QualityMonitor has reached the stage of a robust prototype and it is currently being implemented in one local Chilean company (\secref{qualityMonitor}). By being at the heart of the computer science department of the University of Chile, it is likely that the Object Guidance team will grow with valuable software engineers. 
+
+Current resources totals 105 000 USD (\secref{currentResources}). With these resources, it is reasonable to expect attracting 4 new clients each month after the first year of activity. The need for QualityMonitor is strong in Chile. At the end of the second year, Object Guidance will have a portfolio of 48 clients. This conservative projection constitutes the lower boundary of Object Guidance performance. 
+
+\paragraph{Optimistic projection. }
+We are seeking larger resources. In addition to the Desafio Intel, we are postulating to the GoToMarket\footnote{\url{http://www.corfo.cl/opensite_det_20110608172243.aspx}}, Santander 100K\footnote{\url{http://100k.universia.cl/}} and the program of valorization of research\footnote{Programa de Valoración de la Investigación en la Universidad (VIU), \url{http://www.fondef.cl/content/view/812/451/}}. These programs give the opportunity to access venture capital programs. Assuming a capital of 300 000 USD, we will:
+\begin{itemize}
+\item make QualityMonitor run on a wide range of devices, including mobile phones  (iPhone, Android), tablets (Samsung, iPad), and emits alerts via SMS. Operating on these platforms will make the analyses produced by QualityMonitor closers to a wider range of developers, thus affirming its role and presence in monitoring quality. 
+\item instantiate QualityMonitor to dedicated domains, including banking, mining industry, telecommunications. Each industry domain has its own conventions, programming styles and paradigms. The banking and finance industry intensively uses PHP and J2EE to produce its applications, in addition to some legacy systems written in COBOL. Telecommunication often uses the C programming language to target particular hardware. The mining industry often resort to outsourcing for operating its tailored machinery. Analyzes slightly differs according to the language and technologies employed.
+\item acquire servers in Europe and in North America. Having servers close to clients reduce the risk of network lag and reduce the impact in case of malfunction (\eg power cut). Having a large basket of clients outside Chile will require the presence of servers near them.
+\end{itemize}
+
+Such a large venture capital will have the effect to increase the linkage between Object Guidance with several other sectors, having the effect of \emph{revenue multipliers}. In comparison to the services we are offering, the product QualityMonitor is key to have a high multiplier since it is well known that ``services tend to have low revenue multipliers''\footnote{\url{http://www.statcan.gc.ca/daily-quotidien/060112/dq060112b-eng.htm}}. Thus, reaching a wide range of devices, instantiating QualityMonitor to specialized domain and delocalizing its servers will play an important role.
+
+\paragraph{Chile brand. } Seeing QualityMonitor exported outside its boundary is realistic. Roughly similarly to Israel and Finland, Chile has a small friendly and competent population, adequate resources, a transparent political and administrative system. By being born in Chile, QualityMonitor is a Chilean brand. Israel and Finland have shown that geography not matters and national boundary does not prevent propagation of innovative technological products and services.
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Business Model Canvas}
+
+\newcommand{\vspc}{\vspace{0.1cm}}
+We present the business model canvas~\cite{Oste10a} associated to QualityMonitor. \vspc
+
+%\begin{itemize} 
+\noindent\emph{Customer segment}: companies developing software, either for themselves or for tierce clients.\vspc
+
+\noindent\emph{Value proposition}: (i) controlling the quality of software; (ii) increase the performance of the software development; (iii) reduce the dependency between engineers and the produced software; (iv) real-time monitoring of the software development. \vspc
+
+\noindent\emph{Channels}: (i) The QualityMonitor product will be distributed via the Web (the software to be analyzed is uploaded on a website) or (ii) installed onsite at the customer's headquarters. (iii) Adequate capacitation \dr{can you elaborate on this term? not clear whether you mean consulting, tools, training, etc.} will then be offered to addressing defaults found by QualityMonitor in the analyzed software applications. \vspc
+
+\noindent\emph{Customer relationships}: personal assistance and product sell.\vspace{0.05cm}
+
+\noindent\emph{Revenue stream}: per use, license, subscription. \vspc
+
+\noindent\emph{Key resources}: (i) qualified human capital (excellent software programmers and engineers are essential for the business since they will have to report detailed analysis \dr{unclear. report on the detailed analysis of the tool, perform the detailed analysis?}; (ii) non-disclosure agreement of the software analyses. \vspc
+
+\noindent\emph{Key activities}: analyzing software and proposing improvement to remove quality-associated defaults. Improvements will have to be quickly proposed to the clients. \vspc
+
+\noindent\emph{Key partnerships}: (i) Community around the Pharo programming language\footnote{\url{http://www.pharo-project.org}} (Pharo is used to build Moose); (ii) Community around the Moose software analysis platform. \vspc
+
+\noindent\emph{Cost structure}: (i) proposition for a premium-level quality; (ii) motivation for the value of the service; (iii) principal cost associated to the human capital. 
+%\end{itemize}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Object Guidance: The Company and the Team} \seclabel{team}
 
 Object Guidance is the company that will sell the QualityMonitor products, sell services around the product and provide consulting in software quality. The team is composed of 5 people, including 2 academics for the scientific consulting, 1 civil engineer to define the development strategy, 1 engineer in computer science and 1 executive at the incubator.
@@ -465,11 +557,12 @@ Object Guidance is the company that will sell the QualityMonitor products, sell 
 The current Team involved in the creation of Object Guidance is:
 \begin{itemize}
 
-\item Prof. Dr. Alexandre Bergel -- PhD University of Bern, Switzerland. Assistant Professor at the University of Chile. Expert in Software Quality and Software Analysis. Website: \url{http://bergel.eu}
-\item Dr. David R\"othlisberger -- PhD in computer science and Bachelor in business administration from the University of Bern, Switzerland. Postdoctoral in the Pleiad laboratory at the University of Chile. Expert in Software Quality and Software Analysis. A. Bergel and D. R\"othlisberger know each other for more than 8 years: both did their PhDs at the University of Bern. Website: \url{http://www.droethlisberger.ch}
-\item Marco Orellana Fuenzalida -- Civil Engineer in industry and Computer Science. University of Chile. Currently in charge of the business plan of QualityMonitor and contacting clients. Marco has worked with R. Charnay and A. Bergel since October 2010. Marco will be full time employee at Object Guidance.
-\item Christian Palomares -- Civil Engineer in Computer Science. University of Chile. Experimented programmer. C. Palomares is a student of A. Bergel. They know each other for more than 1.5 years. Christian will be full time employee at Object Guidance.
-\item Romain Charnay -- Executive at the Novos\footnote{\url{http://novos.cl}} incubator. R. Charnay and A. Bergel have been working for more than 2 years on defining the strategy to create Object Guidance and launch QualityMonitor. R. Charnay has provided invaluable advises.
+\item Prof. Dr. Alexandre Bergel -- PhD University of Bern, Switzerland. Assistant Professor at the University of Chile. A. Bergel is expert in Software Quality and Software Analysis. He is active in the research community and regularly published in the most selective and prestigious scientific venues. He has worked with numerous European companies on this theme before getting an interest in the Chilean market. Website: \url{http://bergel.eu}\\
+\item Dr. David R\"othlisberger -- PhD in computer science and Bachelor in business administration from the University of Bern, Switzerland. Postdoctoral in the Pleiad laboratory at the University of Chile. D. R\"othlisberger is expert in Software Quality and Software Analysis. Since 2006, D. R\"othlisberger has founded 3 companies  (Webcitas GmbH, One Sky Solutions GmbH, C3Communications GmbH) registered in the Swiss chamber of commerce. D. R\"othlisberger has a large set of customers, including Swiss government agencies and North-American companies. 
+A. Bergel and D. R\"othlisberger know each other for more than 8 years: both did their PhDs at the University of Bern. Website: \url{http://www.droethlisberger.ch}\\
+\item Marco Orellana Fuenzalida -- Civil Engineer in industry and Computer Science. University of Chile. Currently in charge of the business plan of QualityMonitor and contacting clients. M. Orellana is experienced in business administration. Marco has worked with R. Charnay and A. Bergel since October 2010. Marco will be full time employee at Object Guidance.\\
+\item Christian Palomares -- Civil Engineer in Computer Science, University of Chile. C. Palomares is an experimented programmer who has worked for several companies in Peru. C. Palomares was a student of A. Bergel. They know each other for more than 1.5 years. Christian will be full time employee at Object Guidance.\\
+\item Romain Charnay -- Executive at the Novos\footnote{\url{http://novos.cl}} incubator. R. Charnay and A. Bergel have been working for more than 2 years on defining the strategy to create Object Guidance and launch QualityMonitor. R. Charnay has provided valuable advises.
 \end{itemize}
 
 Object Guidance will have strong links to the University of Chile since Alexandre Bergel and Dr. David R\"othlisberger will maintain their positions at the University of Chile. However, the company will be legally independent of the University of Chile. No legal mention of the benefits will therefore be made. 
@@ -487,9 +580,10 @@ Object Guidance will be located in Santiago, Chile. Each member of the team will
 
 
 \appendix
+\newpage
 \section{Cost and income for Object Guidance}
 
 All figures for the \textbf{income}, \textbf{cost} and \textbf{expenses} are given in USD.
 
-\fig{}{1.3}{incomeSheet}{Cost and income for Object Guidance.}
+\fig{}{1.3}{incomeSheet2}{Cost and income for Object Guidance.}
 \end{document}
