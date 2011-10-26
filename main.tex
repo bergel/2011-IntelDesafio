@@ -3,8 +3,6 @@
 \documentclass[runningheads]{llncs}
 %\documentclass{sig-alternate}
 
-\newcommand{\project}{{\sc MetaSpy}\xspace}
-
 % packages
 \usepackage{xspace}
 \usepackage{ifthen}
@@ -21,7 +19,7 @@
 % constants
 \newcommand{\Title}{QualityMonitor: Improving Software Quality by Monitoring its Evolution}
 %\newcommand{\TitleShort}{\Title}
-\newcommand{\Authors}{Alexandre Bergel, Marco Orellana, David R\"othlisberger, Christian Palomares, Romain Charnay}
+\newcommand{\Authors}{Alexandre Bergel, Marco Orellana, David R\"othlisberger, Vanessa Pe\~na, Romain Charnay}
 \newcommand{\AuthorsShort}{A. Bergel, M. Orellana, D. R\"othlisberger, C. Palomares, R. Charnay}
 
 % references
@@ -121,6 +119,15 @@
 \newcommand{\ab}[1]{\nb{Alexandre}{blue}{#1}}
 \newcommand{\dr}[1]{\nb{David}{orange}{#1}}
 
+
+% tailoring the plan
+\newboolean{talkAboutCapitalSemilla}
+\setboolean{talkAboutCapitalSemilla}{true}
+\ifthenelse{\boolean{talkAboutCapitalSemilla}}
+	{\newcommand{\capitalSemilla}[1]{#1}}
+	{\newcommand{\capitalSemilla}[1]{}}
+
+
 % graphics: \fig{position}{percentage-width}{filename}{caption}
 \DeclareGraphicsExtensions{.png,.jpg,.pdf,.eps,.gif}
 \graphicspath{{figures/}}
@@ -196,7 +203,7 @@ We have surveyed and are interacting with large and prominent IT companies that 
 
 %The interaction we have with these companies is currently on hold, since the bootstrap of QualityMonitor depends very much of external financial resources. 
 
-The product and services of QualityMonitor will be operated by Object Guidance, a recently created company. The international team behind Object Guidance is composed of 5 people. We are currently applying for a 90,000 USD grant, resources that will be used to shape the solutions of client requirements.
+The product and services of QualityMonitor will be operated by Object Guidance, a recently created company. The international team behind Object Guidance is composed of 5 people. \capitalSemilla{We are currently applying for a 90,000 USD grant, resources that will be used to shape the solutions of client requirements.}
 \end{abstract}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -215,7 +222,9 @@ During a workshop on software quality\footnote{\url{http://www.systematic-paris-
 This example is not singular. In fact, according to our experience with European and Chilean software industries, all the software producers we have met suffer from software quality problems.
 This situation is found in any software producer that has not adopted a proper solution to monitor software development quality.
 
-\paragraph{Vision.} QualityMonitor will assist companies to produce better software and ease the software maintenance activities. By increasing the quality of software development, the total cost of a software development is reduced by 20\%-50\%.
+\paragraph{Vision of the company.} Become a global player in software quality. Offering a globally accessible solution, both in terms of cost and easiness to use, to measure and control the quality of a software product.
+
+\paragraph{Vision of the product.} QualityMonitor will assist companies to produce better software and ease the software maintenance activities. By increasing the quality of software development, the total cost of a software development is reduced by 20\%-50\%.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -340,7 +349,12 @@ The study further shows that the necessity of IT solutions has generated an annu
 These figures emphasize the importance of controlling the quality of what is being produced and consumed, especially in an emerging country such as Chile.% Insuring the maintenance at a low cost is essential.
 
 \paragraph{Software Quality and Software Engineering.}
-Software engineering is expensive and large resources are necessary to deliver software of quality (\ie bugfree, robust, extendable with new features at low cost). Sommerville~\cite{Somm00a} and Davis~\cite{Davi95a} estimate that the cost of software maintenance accounts for 50\% to 75\% of the overall cost of a software system. Applied to the Chilean industry, these figures reveal that each of the 70 surveyed companies spend between 1.25 and 1.87 millions USD. We estimate the lower bound of the cost of software maintenance in Chile to be 437 millions USD, extended to the 350 companies involved in producing software and IT services.  Symptoms of software quality problems are:
+Software engineering is expensive and large resources are necessary to deliver software of quality (\ie bugfree, robust, extendable with new features at low cost). Sommerville~\cite{Somm00a} and Davis~\cite{Davi95a} estimate that the cost of software maintenance accounts for 50\% to 75\% of the overall cost of a software system. Applied to the Chilean industry, these figures reveal that each of the 70 surveyed companies spend between 1.25 and 1.87 millions USD. We estimate the lower bound of the cost of software maintenance in Chile to be 437 millions USD, extended to the 350 companies involved in producing software and IT services.  
+
+Worldwide, the global software industry is evaluated at US\$ 457 billions. it is estimated that US\$ 228 billions is spent worldwide in maintenance activities. 
+
+
+Symptoms of software quality problems are:
 
 \begin{itemize}
 \item The author of a poorly written, but functional, critical component may gain an excessive importance in the development team. We have seen numerous situations in which the departure of an engineer may endanger the whole company. By being poorly written we mean that the component is hardly understandable by other developers. 
@@ -377,9 +391,11 @@ These problems are well known. Solutions that are commonly employed to prevent o
 %\item \emph{programming languages} -- among these 350 companies, about 157 use a programming language that is currently supported by QualityMonitor. 
 %\end{itemize}
 
-\paragraph{Customer profile.} The three companies that expressed their interest in QualityMonitor have the same problems to solve: a critical legacy application that has to be maintained and possibly enhanced. Developers that produced the original versions moved into different projects or companies, leaving the software maintainers without an adequate knowledge base. 
+\paragraph{Customer profile.} 
+Companies that are expressing their interest in QualityMonitor have very similar problems to solve, involving a critical legacy application that has to be maintained and possibly enhanced. Developers that produced the original versions moved into different projects or companies, leaving the software maintainers without an adequate knowledge base.
 
-Our ideal customer profile includes producers of software that either develop \emph{locally} or \emph{externalize} the development. 
+Our ideal customer profile includes producers of software that either develop locally or externalize the development. This profile includes large public administrations, banks, telecom companies and heavy industry (automobile, air carrier companies).
+
 
 \paragraph{Government regulations.} The Chilean political context is favorable to QualityMonitor objectives.
 Currently, there is a regular tax of 15\% on selling software. This tax is usually perceived on software delivered with hardware purchases. This tax will be removed in 2011 as an effort to favor the Chilean industry (which also consumes software) and fight against illegal software copies.
@@ -399,12 +415,12 @@ We currently implementing QualityMonitor in Copec, the Petroleum Chilean company
 The first two years of QualityMonitor will seek the complete satisfaction of these 3 Chilean companies. This is key for the recognition of QualityMonitor as a solution for improving software quality. Helping a strong local company is the first milestone of our strategy. A ripple effect among branches and offices and is then expected that will bring QualityMonitor outside Chile. 
 
 \paragraph{3 services.}
-Once QualityMonitor is recognized by our Chilean customers, QualityMonitor will be ready to be publicly open. 3 services will be offered around the QualityMonitor product:
+Once QualityMonitor is recognized by our Chilean customers, QualityMonitor will be ready to be publicly open, worldwide. 3 services will be offered around the QualityMonitor product:
 
 \begin{itemize}
 \item \emph{Free}: A reduced but effective service. Clients will be able to select half of the analysis supported by QualityMonitor. Report will be automatically produced and then sent via email. This free service is solely realized via a web portal. 
 \item \emph{Silver}: Clients will receive the full set of the analysis supported by QualityMonitor. As for the free version, reports will be automatically produced and then sent by email. This service has a cost.
-\item \emph{Gold}: In addition to the silver service, clients will receive a monitoring by the QualityMonitor team. In addition to the report, QualityMonitor will assist clients in their effort to address identified quality problems. Clients will also be able to install a local version of QualityMonitor. This is particularly adequate in case of clients are unwilling from sending their source code via the Web.  
+\item \emph{Gold}: In addition to the silver service, clients will receive a monitoring by the QualityMonitor team. In addition to the report, the QualityMonitor team will coach clients in their effort to address identified quality problems. Clients will also be able to install a local version of QualityMonitor. This is particularly adequate in case of clients are unwilling from sending their source code via the Web.  
 \end{itemize}
 
 These 3 services will make QualityMonitor accessible to both small companies that have limited resources and large companies. 
@@ -432,7 +448,7 @@ Object Guidance is a \emph{sociedad por actions} \dr{not sociedad por acciones? 
 The \emph{price-to-earnings ratio} (P/E) is a financial tool\footnote{\url{http://en.wikipedia.org/wiki/P/E_ratio}} applied to evaluate stock value. A high P/E ratio means that paying more for each unit of net income. The P/E ratio is often expressed in terms of years: it shows the number of years of earnings which are required to pay back purchase, ignoring inflation. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Timeline and budget} \seclabel{currentResources}
+\section{Timeline and budget for the first year} \seclabel{currentResources}
 
 %Extending the range of supported programming languages. Widely used languages includes: C\#, Visual Basic, PHP.
 
@@ -440,11 +456,10 @@ We envision the following milestones for the first year:
 
 \begin{itemize}
 \item August 2011 - Creation of Object Guidance
-\item October 2011 - Government sponsored 90,000 USD grant, \emph{Capital Semilla}. Two full time engineers will then be enrolled. 
+\capitalSemilla{\item October 2011 - Government sponsored 90,000 USD grant, \emph{Capital Semilla}. Two full time engineers will then be enrolled. }
 \item March 2012 - Implantation of QualityMonitor in two of our customers
 \item June 2012 - Online services publicly offered 
 \end{itemize}
-
 
 \fig{}{0.6}{income}{Cost and income of Object Guidance}
 
@@ -452,36 +467,37 @@ We envision the following milestones for the first year:
 
 Each new client will bring a one-shot income of 1,000 USD, plus a monthly subscription of 200 USD. This subscription will cover the cost and maintenance of the project monitoring. The initial fee for the clients and the subscription is the reason why the curve of income is not smooth over the time.
 
-Income will be greater than the cost on Month 14. Once QualityMonitor will reach a stage of commercialization (after 12 months), for 8 consecutive months we will have between 4 and 5 new clients per months. 
+%Income will be greater than the cost on Month 14. Once QualityMonitor will reach a stage of commercialization (after 12 months), for 8 consecutive months we will have between 4 and 5 new clients per months. 
 
-We expect the following figures for the first two active years of QualityMonitor:
-\begin{center}
-\begin{tabular}{|r|r|r|}
-\hline
-\textbf{Months} 	&	\textbf{Income}	& \textbf{Cost} \\\hline\hline
-1 - 12	&	3,600	& 72,000\\\hline
-12 - 24	&	88,000	& 72,000\\
-\hline
-\end{tabular}
-\end{center}
+%We expect the following figures for the first two active years of QualityMonitor:
+%\begin{center}
+%\begin{tabular}{|r|r|r|}
+%\hline
+%\textbf{Months} 	&	\textbf{Income}	& \textbf{Cost} \\\hline\hline
+%1 - 12	&	3,600	& 72,000\\\hline
+%12 - 24	&	88,000	& 72,000\\
+%\hline
+%\end{tabular}
+%\end{center}
 
-Appendix A, given at the end of this document, details the prevision made above.
+%Appendix A, given at the end of this document, details the prevision made above.
 
-\paragraph{Grant.} Capital Semilla is a program sponsored by the Chilean Government (CORFO) to ease the creation of startups\footnote{\url{http://www.corfo.cl/lineas_de_apoyo/programas/capital_semilla_apoyo_a_la_puesta_en_marcha}}. Together with the Novos incubator, we are postulating to the Capital Semilla program. After being interviewed and having our description reviewed by a selective panel, we have been selected for the final phase. The incubator is confident we will obtain the grant since we comply with the priorities set by CORFO: 
+\capitalSemilla{\paragraph{Grant.} Capital Semilla is a program sponsored by the Chilean Government (CORFO) to ease the creation of startups\footnote{\url{http://www.corfo.cl/lineas_de_apoyo/programas/capital_semilla_apoyo_a_la_puesta_en_marcha}}. Together with the Novos incubator, we are postulating to the Capital Semilla program. After being interviewed and having our description reviewed by a selective panel, we have been selected for the final phase. The incubator is confident we will obtain the grant since we comply with the priorities set by CORFO: 
 
 \begin{itemize}
-\item we have a strong research result that has been scientifically recognized\footnote{\url{http://bergel.eu/publications.html}} and validated in European companies
-\item we have a strong and stable contact with international research institutions (A. Bergel is the principal investigator of a major project with INRIA\footnote{\url{http://inria.fr}, \url{http://pleiad.dcc.uchile.cl/research/plomo}}, the French Research Institute in Computer Science)
+\item we have a strong research result that has been scientifically recognized\footnote{\url{http://bergel.eu/publications.html}} and validated in European companies.
+\item we have a strong and stable contact with international research institutions (A. Bergel is the principal investigator of a major project with INRIA\footnote{\url{http://inria.fr}, \url{http://pleiad.dcc.uchile.cl/research/plomo}}, the French Research Institute in Computer Science).
 \item there is a realistic perspective to export abroad QualityMonitor, a technology developed in Chile. QualityMonitor has been used in a company in Argentina, and contributors to the Moose open source project (located in Switzerland and in France) are positively welcoming our effort. The situation is favorable for using companies associated to Moose contributors as a testbed for QualityMonitor.
 \end{itemize}
+}
 
 \paragraph{Initial engineering force.} Object Guidance will be entitled to receive students from the University of Chile for an internship. This mechanism will be used to identify potential engineers.
 
 The average salary in Chile is about 2,000 USD per month for an experienced programmer. We plan an initial investment of 6,000 USD for the necessary infrastructure for software development (two laptops and one server). Even if no agreement has been signed already, local and internet connection are likely to be provided by the University of Chile and the Novos incubator. 
 
-The 90,000 USD grant will therefore cover the initial 6,000 USD, leaving 42 man month, which will be used to develop QualityMonitor. 
+\capitalSemilla{The 90,000 USD grant will therefore cover the initial 6,000 USD, leaving 42 man month, which will be used to develop QualityMonitor. }
 
-The first prize of the Desafio Intel competition is 15,000 USD. The award will be used to initiate a marketing force by hiring a dedicated person for 6 months, full-time, totaling 12,000 USD. The remaining 3,000 USD of the Desafio Intel award will be used to development the corporative image of Object Guidance, which includes creation of a website and an advertising strategy.
+%The first prize of the Desafio Intel competition is 15,000 USD. The award will be used to initiate a marketing force by hiring a dedicated person for 6 months, full-time, totaling 12,000 USD. The remaining 3,000 USD of the Desafio Intel award will be used to development the corporative image of Object Guidance, which includes creation of a website and an advertising strategy.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{From a Startup to a Global Player}
@@ -511,7 +527,7 @@ QualityMonitor via Object Guidance will be targeted for the Chilean market durin
 Current resources totals 105 000 USD (\secref{currentResources}). With these resources, it is reasonable to expect attracting 4 new clients each month after the first year of activity. The need for QualityMonitor is strong in Chile. At the end of the second year, Object Guidance will have a portfolio of 48 clients. This conservative projection constitutes the lower boundary of Object Guidance performance. 
 
 \paragraph{Optimistic projection. }
-We are seeking larger resources. In addition to the Desafio Intel, we are postulating to the GoToMarket\footnote{\url{http://www.corfo.cl/opensite_det_20110608172243.aspx}}, Santander 100K\footnote{\url{http://100k.universia.cl/}} and the program of valorization of research\footnote{Programa de Valoración de la Investigación en la Universidad (VIU), \url{http://www.fondef.cl/content/view/812/451/}}. These programs give the opportunity to access venture capital programs. Assuming a capital of 300 000 USD, we will:
+We are seeking larger resources. In addition to the Desafio Intel, we are postulating to the GoToMarket\footnote{\url{http://www.corfo.cl/opensite_det_20110608172243.aspx}}, Santander 100K\footnote{\url{http://100k.universia.cl/}} and the program of valorization of research\footnote{Programa de Valoración de la Investigación en la Universidad (VIU), \url{http://www.fondef.cl/content/view/812/451/}}. These programs give the opportunity to access venture capital programs. Assuming a capital of 600 000 USD, we will:
 \begin{itemize}
 \item make QualityMonitor run on a wide range of devices, including mobile phones  (iPhone, Android), tablets (Samsung, iPad), and emits alerts via SMS. Operating on these platforms will bring the analyses produced by QualityMonitor closer to a wider range of developers, thus affirming its role and presence in monitoring quality. 
 \item instantiate QualityMonitor to dedicated domains, including banking, mining industry, telecommunications. Each industry domain has its own conventions, programming styles and paradigms. The banking and finance industry intensively uses .Net and J2EE to produce its applications, in addition to some legacy systems written in COBOL. Telecommunication often uses the C programming language to target particular hardware. The mining industry often resorts to outsourcing for operating its tailored machinery. Analyzes slightly differs according to the language and technologies employed.
@@ -519,6 +535,28 @@ We are seeking larger resources. In addition to the Desafio Intel, we are postul
 \end{itemize}
 
 Such a large venture capital will have the effect to increase the linkage between Object Guidance with several other sectors, having the effect of \emph{revenue multipliers}. In comparison to the services we are offering, the product QualityMonitor is key to have a high multiplier since it is well known that ``services tend to have low revenue multipliers''\footnote{\url{http://www.statcan.gc.ca/daily-quotidien/060112/dq060112b-eng.htm}}. Thus, reaching a wide range of devices, instantiating QualityMonitor to specialized domain and delocalizing its servers will play an important role.
+
+\paragraph{Projection for the next 5 years.} We project our sells and the amount of users for the 3 services:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Service & Year 1 & Year 2 & Year 3 & Year 4 & Year 5\\\hline
+Free & 84 & 210 & 630 & 3,150 & 22,050 \\
+Silver & 49 & 122 & 367 & 1837 & 12,862\\
+Gold & 7 & 17 & 52 & 262 & 1,837\\\hline\hline
+
+Total users & 100 & 250 & 750 & 3,750 & 26,250\\\hline
+\end{tabular}
+\end{center}
+
+This projection has been established based on figures obtained from successful startups with a similar cost per product and similar market size. The cost per clients per silver users is US\$ 200 per month. The gold service will cost in the average US\$ 30,000 per year. The benefice of this service is 1 month of close coaching by the QualityMonitor team. 
+
+\fig{}{0.75}{OptimisticIncome}{Income projection for the next 5 years}
+
+\fig{}{0.75}{OptimisticUsers}{Amount of users projection for the next 5 years }
+
+Our projection for the income is given in \figref{OptimisticIncome} and the total amount of clients in \figref{OptimisticUsers}.
 
 \paragraph{Software industry. } Globally, the software industry is large. According to the DataMonitor market monitor\footnote{\url{http://www.datamonitor.com}}, the size of the worldwide software industry in 2013 will be US\$ 457 billion\footnote{\url{http://www.bsa.org/country/Public\%20Policy/~/media/Files/Policy/Security/General/sw_factsfigures.ashx}}. This represents an increase of 50.5\% since 2008. At least US\$ 228 billion is spent to software maintenance. Although this share is likely to decrease with the emergence of new market, which includes mobiles, this proportion remains significative. According to the nature of ObjectGuidance, 1\% is a reasonable fraction that QualityMonitor can tap into in the long run.
 
@@ -564,7 +602,7 @@ The current Team involved in the creation of Object Guidance is:
 \item Dr. David R\"othlisberger -- PhD in computer science and Bachelor in business administration from the University of Bern, Switzerland. Postdoctoral in the Pleiad laboratory at the University of Chile. D. R\"othlisberger is an expert in Software Quality and Software Analysis. Since 2006, D. R\"othlisberger has founded 3 companies  (Webcitas GmbH, One Sky Solutions GmbH, C3Communications GmbH) registered in the Swiss chamber of commerce. D. R\"othlisberger has a large set of customers, including Swiss government agencies and North-American companies. 
 A. Bergel and D. R\"othlisberger know each other for more than 8 years: both did their PhDs at the University of Bern. Website: \url{http://www.droethlisberger.ch}\\
 \item Marco Orellana Fuenzalida -- Civil Engineer in industry and Computer Science. University of Chile. Currently in charge of the business plan of QualityMonitor and contacting clients. M. Orellana is experienced in business administration. Marco has worked with R. Charnay and A. Bergel since October 2010. Marco will be full time employee at Object Guidance.\\
-\item Christian Palomares -- Civil Engineer in Computer Science, University of Chile. C. Palomares is an experimented programmer who has worked for several companies in Peru. C. Palomares was a student of A. Bergel. They know each other for more than 1.5 years. Christian will be full time employee at Object Guidance.\\
+\item Vanessa Pe\~na -- Engineer in Computer Science, University of Chile. V. Pe\~na is an experimented programmer and was a student of A. Bergel. They know each other for more than 1.5 years. Christian is currently part time employee at Object Guidance.\\
 \item Romain Charnay -- Executive at the Novos\footnote{\url{http://novos.cl}} incubator. R. Charnay and A. Bergel have been working for more than 2 years on defining the strategy to create Object Guidance and launch QualityMonitor. R. Charnay has provided valuable advises.
 \end{itemize}
 
@@ -572,7 +610,7 @@ Object Guidance will have strong links to the University of Chile since Alexandr
 
 Object Guidance will be created in August 2011 as a stock-based company. At the moment of writing this business plan, all the necessary and legal papers have been provided to Jaime Luarte Correa, lawyer at Brokering \& Luarte, a company that provides legal services\footnote{\url{http://bylabogados.cl}}. The corporative identity has been realized by Volta design\footnote{\url{http://www.estudiovolta.com}}. The logo and other visual elements of the image are available online\footnote{\url{http://www.estudiovolta.com/portafolio/quality-monitor}}.
 
-Object Guidance is advised by Novos, the incubator associated to the University of Chile. Novos is helping the creation of Object Guidance by establishing the contact with designer, lawyer and the Chilean public funding agency for the Capital Semilla.
+Object Guidance is advised by Novos, the incubator associated to the University of Chile. Novos is helping the creation of Object Guidance by establishing the contact with designer, lawyer and CORFO, the Chilean public funding agency.
 
 Object Guidance will be located in Santiago, Chile. Each member of the team will be physically located in Santiago as well.
 %\newpage
@@ -582,11 +620,11 @@ Object Guidance will be located in Santiago, Chile. Each member of the team will
 \bibliography{scg}
 
 
-\appendix
-\newpage
-\section{Cost and income for Object Guidance}
-
-All figures for the \textbf{income}, \textbf{cost} and \textbf{expenses} are given in USD.
-
-\fig{}{1.3}{incomeSheet2}{Cost and income for Object Guidance.}
+%\appendix
+%\newpage
+%\section{Cost and income for Object Guidance}
+%
+%All figures for the \textbf{income}, \textbf{cost} and \textbf{expenses} are given in USD.
+%
+%\fig{}{1.3}{incomeSheet2}{Cost and income for Object Guidance.}
 \end{document}
